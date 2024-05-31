@@ -5,6 +5,11 @@
 
 type tEaseFunction = (x: number) => number;
 
+// none
+export const noEase: tEaseFunction = (x: number) => {
+    return x;
+};
+
 // sine
 export const easeInSine: tEaseFunction = (x: number) => {
     return 1 - Math.cos((x * Math.PI) / 2);
