@@ -5,6 +5,7 @@
 
 type tEaseFunction = (x: number) => number;
 
+
 // none
 export const noEase: tEaseFunction = (x: number) => {
     return x;
@@ -94,6 +95,7 @@ export const easeInOutExpo: tEaseFunction = (x: number) => {
 };
 
 // circ
+// #### SLIGHTLY BUGGY - occasionally gives an undefined value potentially ####
 export const easeInCirc: tEaseFunction = (x: number) => {
     return 1 - Math.sqrt(1 - Math.pow(x, 2));
 };
@@ -183,3 +185,74 @@ export const easeInOutBounce: tEaseFunction = (x: number) => {
         ? (1 - easeOutBounce(1 - 2 * x)) / 2
         : (1 + easeOutBounce(2 * x - 1)) / 2;
 };
+
+
+// option to obtain the function by name - useful for persistence
+export function load(name: string): tEaseFunction {
+    switch (name) {
+        case 'noEase':
+            return noEase;
+        case 'easeInSine':
+            return easeInSine;
+        case 'easeOutSine':
+            return easeOutSine;
+        case 'easeInOutSine':
+            return easeInOutSine;
+        case 'easeInQuad':
+            return easeInQuad;
+        case 'easeOutQuad':
+            return easeOutQuad;
+        case 'easeInOutQuad':
+            return easeInOutQuad;
+        case 'easeInCubic':
+            return easeInCubic;
+        case 'easeOutCubic':
+            return easeOutCubic;
+        case 'easeInOutCubic':
+            return easeInOutCubic;
+        case 'easeInQuart':
+            return easeInQuart;
+        case 'easeOutQuart':
+            return easeOutQuart;
+        case 'easeInOutQuart':
+            return easeInOutQuart;
+        case 'easeInQuint':
+            return easeInQuint;
+        case 'easeOutQuint':
+            return easeOutQuint;
+        case 'easeInOutQuint':
+            return easeInOutQuint;
+        case 'easeInExpo':
+            return easeInExpo;
+        case 'easeOutExpo':
+            return easeOutExpo;
+        case 'easeInOutExpo':
+            return easeInOutExpo;
+        case 'easeInCirc':
+            return easeInCirc;
+        case 'easeOutCirc':
+            return easeOutCirc;
+        case 'easeInOutCirc':
+            return easeInOutCirc;
+        case 'easeInBack':
+            return easeInBack;
+        case 'easeOutBack':
+            return easeOutBack;
+        case 'easeInOutBack':
+            return easeInOutBack;
+        case 'easeInElastic':
+            return easeInElastic;
+        case 'easeOutElastic':
+            return easeOutElastic;
+        case 'easeInOutElastic':
+            return easeInOutElastic;
+        case 'easeInBounce':
+            return easeInBounce;
+        case 'easeOutBounce':
+            return easeOutBounce;
+        case 'easeInOutBounce':
+            return easeInOutBounce;
+        default:
+            return noEase;
+    }
+}
