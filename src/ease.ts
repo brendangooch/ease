@@ -3,8 +3,8 @@
  * credit https://easings.net/
  */
 
+type tEaseOption = 'noEase' | 'easeInSine' | 'easeOutSine' | 'easeInOutSine' | 'easeInQuad' | 'easeOutQuad' | 'easeInOutQuad' | 'easeInCubic' | 'easeOutCubic' | 'easeInOutCubic' | 'easeInQuart' | 'easeOutQuart' | 'easeInOutQuart' | 'easeInQuint' | 'easeOutQuint' | 'easeInOutQuint' | 'easeInExpo' | 'easeOutExpo' | 'easeInOutExpo' | 'easeInCirc' | 'easeOutCirc' | 'easeInOutCirc' | 'easeInBack' | 'easeOutBack' | 'easeInOutBack' | 'easeInElastic' | 'easeOutElastic' | 'easeInOutElastic' | 'easeInBounce' | 'easeOutBounce' | 'easeInOutBounce';
 type tEaseFunction = (x: number) => number;
-
 
 // none
 export const noEase: tEaseFunction = (x: number) => {
@@ -188,7 +188,7 @@ export const easeInOutBounce: tEaseFunction = (x: number) => {
 
 
 // option to obtain the function by name - useful for persistence
-export function load(name: string): tEaseFunction {
+export function load(name: tEaseOption): tEaseFunction {
     switch (name) {
         case 'noEase':
             return noEase;
